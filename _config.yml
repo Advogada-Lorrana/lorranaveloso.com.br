@@ -1,0 +1,20 @@
+title: "Lorrana O. Veloso — Advogada"
+description: "Assessoria jurídica com comprometimento, ética e excelência."
+url: "https://lorranaveloso.com.br"
+baseurl: ""
+
+# Dados da advogada — edite aqui
+advogada:
+  nome: "Lorrana O. Veloso"
+  nome_completo: "Lorrana Oliveira Veloso"
+  oab_ba: "77.592"
+  oab_es: "44.058"
+  whatsapp: "5573999502281"
+  whatsapp_display: "(73) 99950-2281"
+  email: "lorrana.juridico95@gmail.com"
+  frase: "Defendo seus interesses com empatia e estratégia — resultados concretos, sem rodeios."
+
+plugins:
+  - jekyll-seo-tag
+
+markdown: kramdown

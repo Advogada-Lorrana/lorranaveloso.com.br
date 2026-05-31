@@ -1,0 +1,559 @@
+/* =============================================
+   LORRANA O. VELOSO — ADVOGADA
+   Identidade: Vermelho Escuro + Dourado
+   ============================================= */
+
+:root {
+  --vermelho:       #8B0000;
+  --vermelho-escuro:#6B0000;
+  --vermelho-hero:  #5a0000;
+  --dourado:        #C9A84C;
+  --dourado-claro:  #E2C47A;
+  --dourado-escuro: #A07830;
+  --creme:          #FAF7F2;
+  --texto:          #2C1A0E;
+  --texto-suave:    #5C4A3A;
+  --branco:         #FFFFFF;
+  --sombra:         rgba(90, 0, 0, 0.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  color: var(--texto);
+  background: var(--creme);
+  line-height: 1.7;
+}
+
+/* ── TIPOGRAFIA ── */
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; line-height: 1.2; }
+
+/* ── NAV ── */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(90, 0, 0, 0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dourado);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--dourado); }
+
+.nav-cta {
+  background: transparent !important;
+  border: 1px solid var(--dourado) !important;
+  color: var(--dourado) !important;
+  padding: 0.45rem 1.2rem;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.nav-cta:hover {
+  background: var(--dourado) !important;
+  color: var(--vermelho-escuro) !important;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--dourado);
+  border-radius: 2px;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    linear-gradient(160deg, #5a0000 0%, #8B0000 40%, #6B0000 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 80px,
+      rgba(201,168,76,0.04) 80px,
+      rgba(201,168,76,0.04) 81px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(201,168,76,0.04) 80px,
+      rgba(201,168,76,0.04) 81px
+    );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 700px;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--dourado-claro);
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 500;
+  color: var(--branco);
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.hero-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+  margin: 1.5rem auto;
+}
+
+.hero-frase {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-style: italic;
+  color: var(--dourado-claro);
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.hero-oab {
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-hero {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  border: 1px solid var(--dourado);
+  background: var(--dourado);
+  color: var(--vermelho-escuro);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.25s, color 0.25s, transform 0.15s;
+}
+
+.btn-hero:hover {
+  background: var(--dourado-claro);
+  transform: translateY(-2px);
+}
+
+.btn-hero-ghost {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  border: 1px solid rgba(201,168,76,0.5);
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.btn-hero-ghost:hover {
+  border-color: var(--dourado);
+  color: var(--dourado);
+}
+
+/* ── SECTIONS ── */
+.section { padding: 6rem 0; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dourado-escuro);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  color: var(--vermelho-escuro);
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  color: var(--texto-suave);
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0.75rem auto 0;
+}
+
+/* ── SOBRE ── */
+.sobre { background: var(--branco); }
+
+.sobre-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.sobre-text p {
+  color: var(--texto-suave);
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+}
+
+.sobre-destaque {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem;
+  border-left: 2px solid var(--dourado);
+  background: var(--creme);
+  border-radius: 0 4px 4px 0;
+}
+
+.destaque-item { display: flex; flex-direction: column; gap: 0.25rem; }
+
+.destaque-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--vermelho);
+  line-height: 1;
+}
+
+.destaque-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+/* ── ÁREAS ── */
+.areas { background: var(--creme); }
+
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.area-card {
+  background: var(--branco);
+  border: 1px solid rgba(139, 0, 0, 0.1);
+  border-top: 3px solid var(--dourado);
+  border-radius: 0 0 4px 4px;
+  padding: 2rem 1.75rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.area-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px var(--sombra);
+}
+
+.area-destaque {
+  border-top-color: var(--vermelho);
+  background: linear-gradient(160deg, #fff 70%, #fff5f5 100%);
+}
+
+.area-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--vermelho);
+  border: 1px solid rgba(139,0,0,0.25);
+  padding: 0.2rem 0.65rem;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.area-icon {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.area-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--vermelho-escuro);
+  margin-bottom: 0.75rem;
+}
+
+.area-card p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  line-height: 1.65;
+}
+
+/* ── ATENDIMENTO ── */
+.atendimento {
+  background: var(--branco);
+  padding: 3rem 0;
+  border-top: 1px solid rgba(139,0,0,0.08);
+  border-bottom: 1px solid rgba(139,0,0,0.08);
+}
+
+.atendimento-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.atendimento-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1rem 3rem;
+  text-align: center;
+}
+
+.atend-icon { font-size: 1.5rem; line-height: 1; }
+
+.atendimento-item h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--vermelho-escuro);
+}
+
+.atendimento-item p {
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  letter-spacing: 0.03em;
+}
+
+.atendimento-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(139,0,0,0.15);
+}
+
+/* ── CONTATO ── */
+.contato {
+  background: var(--vermelho-escuro);
+}
+
+.contato .section-tag { color: var(--dourado-claro); opacity: 0.7; }
+.contato .section-title { color: var(--branco); }
+.contato .section-sub { color: rgba(255,255,255,0.6); }
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.contato-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.75rem 2rem;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.contato-card:hover {
+  background: rgba(201, 168, 76, 0.08);
+  border-color: var(--dourado);
+}
+
+.contato-icon {
+  color: var(--dourado);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.contato-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.3rem;
+}
+
+.contato-valor {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--branco);
+  word-break: break-all;
+}
+
+.contato-cta { text-align: center; }
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: var(--dourado);
+  color: var(--vermelho-escuro);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: var(--dourado-claro);
+  transform: translateY(-2px);
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  background: var(--vermelho-hero);
+  border-top: 1px solid rgba(201, 168, 76, 0.2);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--dourado);
+  margin-bottom: 0.4rem;
+}
+
+.footer-oab {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 0.75rem;
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 68px; left: 0; right: 0;
+    background: var(--vermelho-escuro);
+    padding: 1.5rem 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: flex; }
+
+  .sobre-content { grid-template-columns: 1fr; gap: 2.5rem; }
+  .areas-grid { grid-template-columns: 1fr 1fr; }
+  .contato-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .areas-grid { grid-template-columns: 1fr; }
+  .section { padding: 4rem 0; }
+}
